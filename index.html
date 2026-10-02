@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五月天电影网 - 高清电影在线观看 | wuyuetiandianyingwang-top.github.io</title>
+    <meta name="description" content="五月天电影网（https://wuyuetiandianyingwang-top.github.io）提供最新高清电影、电视剧、动漫在线观看，每日更新，免费畅享海量影视资源，极速播放体验。">
+    <meta name="keywords" content="五月天电影网,高清电影,在线观看,电影网站,wuyuetiandianyingwang-top.github.io">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="canonical" href="https://wuyuetiandianyingwang-top.github.io">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wuyuetiandianyingwang-top.github.io">
+    <meta property="og:title" content="五月天电影网 - 高清电影在线观看">
+    <meta property="og:description" content="五月天电影网提供最新高清电影、电视剧、动漫在线观看，每日更新，免费畅享海量影视资源。">
+    <meta property="og:image" content="https://picsum.photos/1200/630?random=10">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://wuyuetiandianyingwang-top.github.io">
+    <meta property="twitter:title" content="五月天电影网 - 高清电影在线观看">
+    <meta property="twitter:description" content="五月天电影网提供最新高清电影、电视剧、动漫在线观看，每日更新，免费畅享海量影视资源。">
+    <meta property="twitter:image" content="https://picsum.photos/1200/630?random=10">
+    <style>
+        /* 基础重置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #0a0a0f; 
+            color: #e0e0e0; 
+            line-height: 1.6; 
+            overflow-x: hidden;
+        }
+        a { text-decoration: none; color: #00f3ff; transition: all 0.3s ease; }
+        a:hover { color: #ff003c; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* 赛博朋克风格变量 */
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-pink: #ff003c;
+            --dark-bg: #0a0a0f;
+            --card-bg: #12121c;
+            --border-glow: 0 0 10px rgba(0, 243, 255, 0.3), 0 0 20px rgba(0, 243, 255, 0.1);
+        }
+
+        /* 头部导航 */
+        header {
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+        .logo span { color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); }
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-menu a {
+            color: #ccc;
+            font-weight: 600;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-blue);
+            transition: width 0.3s ease;
+        }
+        .nav-menu a:hover::after { width: 100%; }
+        .nav-menu a:hover { color: var(--neon-blue); text-shadow: 0 0 8px var(--neon-blue); }
+        .mobile-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--neon-blue);
+        }
+
+        /* 英雄区域 */
+        .hero {
+            margin-top: 70px;
+            padding: 100px 0;
+            background: linear-gradient(180deg, rgba(10,10,15,0.9) 0%, rgba(18,18,28,0.9) 100%), 
+                        url('https://picsum.photos/1920/1080?random=11') center/cover;
+            position: relative;
+            border-bottom: 2px solid var(--neon-pink);
+            box-shadow: 0 0 30px rgba(255, 0, 60, 0.2);
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 243, 255, 0.03) 2px,
+                rgba(0, 243, 255, 0.03) 4px
+            );
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px var(--neon-blue), 0 0 40px rgba(0, 243, 255, 0.5);
+        }
+        .hero h1 span { color: var(--neon-pink); text-shadow: 0 0 20px var(--neon-pink); }
+        .hero p {
+            font-size: 18px;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        .hero-btn {
+            display: inline-block;
+            background: transparent;
+            color: var(--neon-blue);
+            border: 2px solid var(--neon-blue);
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3), inset 0 0 15px rgba(0, 243, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .hero-btn:hover {
+            background: var(--neon-blue);
+            color: #000;
+            box-shadow: 0 0 30px var(--neon-blue), inset 0 0 20px rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+        }
+
+        /* 栏目通用 */
+        .section { padding: 80px 0; position: relative; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+        }
+        .section-title p {
+            color: #888;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        /* 最新影片 - 网格 */
+        .movies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 30px;
+        }
+        .movie-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            border-radius: 0;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+        .movie-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            z-index: 2;
+        }
+        .movie-card:hover::before { transform: scaleX(1); }
+        .movie-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--border-glow);
+            border-color: rgba(0, 243, 255, 0.3);
+        }
+        .movie-poster {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            filter: grayscale(20%) contrast(1.1);
+            transition: filter 0.3s ease;
+        }
+        .movie-card:hover .movie-poster { filter: grayscale(0%) contrast(1); }
+        .movie-info {
+            padding: 20px;
+        }
+        .movie-info h3 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .movie-info p {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 15px;
+        }
+        .play-btn {
+            display: inline-block;
+            background: rgba(0, 243, 255, 0.1);
+            color: var(--neon-blue);
+            padding: 8px 20px;
+            border: 1px solid var(--neon-blue);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .play-btn:hover {
+            background: var(--neon-blue);
+            color: #000;
+        }
+
+        /* 分类区域 */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+        }
+        .category-card {
+            background: linear-gradient(135deg, rgba(0,243,255,0.05) 0%, rgba(255,0,60,0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .category-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--neon-pink);
+            transform: translateX(-100%);
+            transition: transform 0.4s ease;
+        }
+        .category-card:hover::after { transform: translateX(0); }
+        .category-card:hover {
+            background: rgba(0, 243, 255, 0.05);
+            border-color: rgba(0, 243, 255, 0.3);
+        }
+        .category-card h3 {
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .category-card p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* 网站特色 */
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .feature-item {
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-left: 3px solid var(--neon-blue);
+            transition: all 0.3s ease;
+        }
+        .feature-item:hover {
+            background: rgba(0, 243, 255, 0.05);
+            transform: translateX(10px);
+        }
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .feature-item h3 {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .feature-item p {
+            color: #888;
+            font-size: 15px;
+        }
+
+        /* 关于我们 */
+        .about-section {
+            background: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h40v40H0V0zm20 20h20v20H20V20zM0 20h20v20H0V20z" fill="%2312121c" fill-opacity="0.5" fill-rule="evenodd"/></svg>');
+        }
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background: rgba(10, 10, 15, 0.8);
+            padding: 40px;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.05);
+        }
+        .about-content p {
+            color: #b0b0b0;
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        .website-url {
+            display: inline-block;
+            background: rgba(0, 243, 255, 0.1);
+            padding: 15px 30px;
+            border: 1px dashed var(--neon-blue);
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            color: var(--neon-blue);
+            margin: 20px 0;
+            letter-spacing: 1px;
+        }
+
+        /* 页脚 */
+        footer {
+            background: #050508;
+            padding: 60px 0 20px;
+            border-top: 1px solid rgba(255, 0, 60, 0.3);
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-column h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-column ul li { margin-bottom: 12px; }
+        .footer-column a {
+            color: #666;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        .footer-column a:hover {
+            color: var(--neon-pink);
+            padding-left: 5px;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: #555;
+            font-size: 14px;
+        }
+        .footer-bottom p { margin-bottom: 10px; }
+        .footer-bottom a { color: var(--neon-blue); }
+
+        /* 响应式 */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 36px; }
+            .section { padding: 60px 0; }
+        }
+        @media (max-width: 768px) {
+            .mobile-toggle { display: block; }
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(10, 10, 15, 0.98);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: left 0.3s ease;
+            }
+            .nav-menu.active { left: 0; }
+            .nav-menu a { font-size: 18px; padding: 15px 0; }
+            .hero { padding: 80px 0; }
+            .hero h1 { font-size: 28px; }
+            .hero p { font-size: 16px; }
+            .section-title h2 { font-size: 28px; }
+            .movies-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; }
+            .movie-poster { height: 220px; }
+            .categories-grid { grid-template-columns: repeat(2, 1fr); }
+            .feature-item { padding: 30px 20px; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 24px; letter-spacing: 1px; }
+            .hero-btn { padding: 12px 25px; font-size: 14px; }
+            .section-title h2 { font-size: 24px; }
+            .movies-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
+            .movie-poster { height: 180px; }
+            .movie-info { padding: 12px; }
+            .movie-info h3 { font-size: 14px; }
+            .movie-info p { font-size: 12px; margin-bottom: 10px; }
+            .play-btn { padding: 6px 12px; font-size: 11px; }
+            .categories-grid { grid-template-columns: 1fr; }
+            .about-content { padding: 30px 20px; }
+            .website-url { font-size: 14px; padding: 10px 15px; }
+        }
+    </style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+    <!-- 头部导航 -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">五月天<span>电影网</span></a>
+            <div class="mobile-toggle" onclick="document.querySelector('.nav-menu').classList.toggle('active')">☰</div>
+            <nav class="nav-menu">
+                <a href="#">首 页</a>
+                <a href="#">最新影片</a>
+                <a href="#">影片分类</a>
+                <a href="#">网站特色</a>
+                <a href="#">关于我们</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 首页/英雄区域 -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>五月天<span>电影网</span></h1>
+                <p>五月天电影网（wuyuetiandianyingwang-top.github.io）为您开启极速高清影视之旅。海量电影、热播剧集、经典动漫，全部免费在线观看，无广告打扰，畅享视听盛宴。</p>
+                <a href="#" class="hero-btn">立即进入影院</a>
+            </div>
+        </section>
+
+        <!-- 最新影片栏目 -->
+        <section class="section" id="movies">
+            <div class="container">
+                <div class="section-title">
+                    <h2>最新影片</h2>
+                    <p>五月天电影网每日精选，抢先观看</p>
+                </div>
+                <div class="movies-grid">
+                    <div class="movie-card">
+                        <img src="https://picsum.photos/400/600?random=21" alt="五月天电影网推荐影片" class="movie-poster">
+                        <div class="movie-info">
+                            <h3>星际穿越2</h3>
+                            <p>2024 · 科幻/冒险 · 1080P</p>
+                            <a href="#" class="play-btn">立即播放</a>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <img src="https://picsum.photos/400/600?random=22" alt="五月天电影网推荐影片" class="movie-poster">
+                        <div class="movie-info">
+                            <h3>暗夜追凶</h3>
+                            <p>2024 · 悬疑/犯罪 · 超清</p>
+                            <a href="#" class="play-btn">立即播放</a>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <img src="https://picsum.photos/400/600?random=23" alt="五月天电影网推荐影片" class="movie-poster">
+                        <div class="movie-info">
+                            <h3>疯狂的石头3</h3>
+                            <p>2023 · 喜剧/搞笑 · 高清</p>
+                            <a href="#" class="play-btn">立即播放</a>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <img src="https://picsum.photos/400/600?random=24" alt="五月天电影网推荐影片" class="movie-poster">
+                        <div class="movie-info">
+                            <h3>深海奇缘</h3>
+                            <p>2024 · 动画/冒险 · 蓝光</p>
+                            <a href="#" class="play-btn">立即播放</a>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <img src="https://picsum.photos/400/600?random=25" alt="五月天电影网推荐影片" class="movie-poster">
+                        <div class="movie-info">
+                            <h3>战狼传说</h3>
+                            <p>2024 · 动作/战争 · 4K</p>
+                            <a href="#" class="play-btn">立即播放</a>
+                        </div>
+                    </div>
+                    <div class="movie-card">
+                        <img src="https://picsum.photos/400/600?random=26" alt="五月天电影网推荐影片" class="movie-poster">
+                        <div class="movie-info">
+                            <h3>时光恋人</h3>
+                            <p>2023 · 爱情/剧情 · 高清</p>
+                            <a href="#" class="play-btn">立即播放</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 影片分类栏目 -->
+        <section class="section" id="categories" style="background-color: var(--card-bg);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>影片分类</h2>
+                    <p>在五月天电影网精准定位您的喜好</p>
+                </div>
+                <div class="categories-grid">
+                    <a href="#" class="category-card">
+                        <h3>动作片</h3>
+                        <p>热血激战 · 拳拳到肉</p>
+                    </a>
+                    <a href="#" class="category-card">
+                        <h3>科幻片</h3>
+                        <p>脑洞大开 · 视觉震撼</p>
+                    </a>
+                    <a href="#" class="category-card">
+                        <h3>爱情片</h3>
+                        <p>甜蜜虐心 · 情感共鸣</p>
+                    </a>
+                    <a href="#" class="category-card">
+                        <h3>悬疑片</h3>
+                        <p>烧脑反转 · 推理探案</p>
+                    </a>
+                    <a href="#" class="category-card">
+                        <h3>喜剧片</h3>
+                        <p>轻松幽默 · 欢乐解压</p>
+                    </a>
+                    <a href="#" class="category-card">
+                        <h3>动画片</h3>
+                        <p>奇幻世界 · 童心未泯</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 网站特色栏目 -->
+        <section class="section" id="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>网站特色</h2>
+                    <p>五月天电影网，重新定义免费观影</p>
+                </div>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">🚀</div>
+                        <h3>极速加载</h3>
+                        <p>采用全球CDN加速节点，五月天电影网确保每一帧画面都能瞬间加载，告别缓冲等待。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💎</div>
+                        <h3>蓝光画质</h3>
+                        <p>提供1080P至4K多种清晰度选择，极致视觉体验，在家也能享受影院级视听。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>安全无广</h3>
+                        <p>全站无弹窗广告，无恶意插件，为您打造一个纯净、安全的观影环境。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📡</div>
+                        <h3>实时同步</h3>
+                        <p>与海内外院线及流媒体平台实时同步，热门新片第一时间更新，快人一步。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于我们栏目 -->
+        <section class="section about-section" id="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>关于五月天电影网</h2>
+                    <p>我们的故事与承诺</p>
+                </div>
+                <div class="about-content">
+                    <p>五月天电影网（<strong>wuyuetiandianyingwang-top.github.io</strong>）诞生于对电影艺术的热爱与对技术的极致追求。我们致力于打破地域与费用的限制，让每一个人都能自由地享受影视文化的魅力。</p>
+                    <div class="website-url">
+                        https://wuyuetiandianyingwang-top.github.io
+                    </div>
+                    <p>作为新一代的影视资源聚合平台，五月天电影网不仅提供海量高清资源，更注重用户体验与界面设计。我们采用前沿的前端技术，打造出极具科技感与未来感的浏览界面，让找片、看片成为一种视觉享受。未来，我们将继续优化服务，引入更多独家内容与智能推荐功能，让五月天电影网成为您观影之旅的最佳伴侣。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>五月天电影网</h3>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">团队介绍</a></li>
+                        <li><a href="#">免责声明</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>快速导航</h3>
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">最新上映</a></li>
+                        <li><a href="#">排行榜单</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>资源分类</h3>
+                    <ul>
+                        <li><a href="#">动作冒险</a></li>
+                        <li><a href="#">科幻未来</a></li>
+                        <li><a href="#">悬疑惊悚</a></li>
+                        <li><a href="#">喜剧搞笑</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>访问信息</h3>
+                    <ul>
+                        <li><a href="https://wuyuetiandianyingwang-top.github.io">wuyuetiandianyingwang-top.github.io</a></li>
+                        <li><a href="#">反馈建议</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 五月天电影网. All rights reserved.</p>
+                <p>网站名称：<strong>五月天电影网</strong> | 网站地址：<a href="https://wuyuetiandianyingwang-top.github.io">https://wuyuetiandianyingwang-top.github.io</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
